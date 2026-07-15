@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us — ShopNest</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+
+    <!-- ── NAVBAR ── -->
+    <header class="navbar">
+      <div class="nav-inner">
+        <a href="#" class="logo">
+          <i class="fa-solid fa-bag-shopping"></i> ShopNest
+        </a>
+        <nav class="nav-links">
+          <a href="#">Home</a>
+          <a href="#">Shop</a>
+          <a href="#">About</a>
+          <a href="#" class="active">Contact</a>
+        </nav>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- ── HERO BANNER ── -->
+    <section class="hero">
+      <div class="hero-content">
+        <p class="hero-tag">We're here to help</p>
+        <h1>Get in Touch<br /><span>With Us</span></h1>
+        <p class="hero-sub">
+          Have a question, complaint, or just want to say hello?<br />
+          Our friendly team is always ready to assist you.
+        </p>
+      </div>
+      <div class="hero-illustration">
+        <div class="blob"></div>
+        <div class="float-card card-1">
+          <i class="fa-solid fa-headset"></i>
+          <span>24/7 Support</span>
+        </div>
+        <div class="float-card card-2">
+          <i class="fa-solid fa-reply"></i>
+          <span>Quick Reply</span>
+        </div>
+        <div class="float-card card-3">
+          <i class="fa-solid fa-star"></i>
+          <span>5-Star Service</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── INFO CARDS ── -->
+    <section class="info-section">
+      <div class="container">
+        <div class="info-grid">
+
+          <div class="info-card">
+            <div class="icon-wrap purple">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <h3>Our Store</h3>
+            <p>42 Commerce Street<br />New York, NY 10001</p>
+            <a href="#" class="card-link">Get Directions <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <div class="info-card">
+            <div class="icon-wrap orange">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+            <h3>Call Us</h3>
+            <p>Mon – Fri, 9 am – 6 pm<br />+1 (800) 123-4567</p>
+            <a href="tel:+18001234567" class="card-link">Call Now <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <div class="info-card">
+            <div class="icon-wrap teal">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <h3>Email Us</h3>
+            <p>We reply within 24 hours<br />hello@shopnest.com</p>
+            <a href="mailto:hello@shopnest.com" class="card-link">Send Email <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <div class="info-card">
+            <div class="icon-wrap pink">
+              <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <h3>WhatsApp</h3>
+            <p>Chat with us instantly<br />+1 (800) 987-6543</p>
+            <a href="#" class="card-link">Chat Now <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── MAIN CONTENT: FORM + MAP ── -->
+    <section class="main-section">
+      <div class="container main-grid">
+
+        <!-- CONTACT FORM -->
+        <div class="form-card">
+          <div class="form-header">
+            <h2>Send a Message</h2>
+            <p>Fill in the form and we'll get back to you within one business day.</p>
+          </div>
+
+          <form id="contactForm" novalidate>
+
+            <div class="form-row">
+              <div class="field-group">
+                <label for="firstName">First Name <span>*</span></label>
+                <div class="input-wrap">
+                  <i class="fa-solid fa-user"></i>
+                  <input type="text" id="firstName" name="firstName" placeholder="John" required />
+                </div>
+                <span class="error-msg" id="firstNameError"></span>
+              </div>
+              <div class="field-group">
+                <label for="lastName">Last Name <span>*</span></label>
+                <div class="input-wrap">
+                  <i class="fa-solid fa-user"></i>
+                  <input type="text" id="lastName" name="lastName" placeholder="Doe" required />
+                </div>
+                <span class="error-msg" id="lastNameError"></span>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label for="email">Email Address <span>*</span></label>
+              <div class="input-wrap">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" id="email" name="email" placeholder="john.doe@example.com" required />
+              </div>
+              <span class="error-msg" id="emailError"></span>
+            </div>
+
+            <div class="field-group">
+              <label for="phone">Phone Number</label>
+              <div class="input-wrap">
+                <i class="fa-solid fa-phone"></i>
+                <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" />
+              </div>
+              <span class="error-msg" id="phoneError"></span>
+            </div>
+
+            <div class="field-group">
+              <label for="subject">Subject <span>*</span></label>
+              <div class="input-wrap select-wrap">
+                <i class="fa-solid fa-tag"></i>
+                <select id="subject" name="subject" required>
+                  <option value="" disabled selected>Select a topic…</option>
+                  <option value="order">Order Inquiry</option>
+                  <option value="return">Returns &amp; Refunds</option>
+                  <option value="shipping">Shipping</option>
+                  <option value="product">Product Question</option>
+                  <option value="feedback">Feedback</option>
+                  <option value="other">Other</option>
+                </select>
+                <i class="fa-solid fa-chevron-down chevron"></i>
+              </div>
+              <span class="error-msg" id="subjectError"></span>
+            </div>
+
+            <div class="field-group">
+              <label for="message">Message <span>*</span></label>
+              <div class="input-wrap textarea-wrap">
+                <i class="fa-solid fa-comment-dots"></i>
+                <textarea id="message" name="message" rows="5" placeholder="Write your message here…" required></textarea>
+              </div>
+              <div class="char-count"><span id="charCount">0</span> / 500</div>
+              <span class="error-msg" id="messageError"></span>
+            </div>
+
+            <div class="field-group checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" id="consent" name="consent" required />
+                <span class="checkmark"></span>
+                I agree to the <a href="#">Privacy Policy</a> and allow ShopNest to contact me.
+              </label>
+              <span class="error-msg" id="consentError"></span>
+            </div>
+
+            <button type="submit" class="btn-submit" id="submitBtn">
+              <span class="btn-text">Send Message</span>
+              <span class="btn-loader hidden"><i class="fa-solid fa-spinner fa-spin"></i></span>
+              <i class="fa-solid fa-paper-plane btn-icon"></i>
+            </button>
+
+          </form>
+
+          <!-- SUCCESS MESSAGE -->
+          <div class="success-banner hidden" id="successBanner">
+            <div class="success-inner">
+              <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+              <div>
+                <h3>Message Sent!</h3>
+                <p>Thanks for reaching out. We'll reply to your inbox within 24 hours.</p>
+              </div>
+            </div>
+            <button class="btn-reset" id="resetBtn">Send Another</button>
+          </div>
+
+        </div>
+
+        <!-- MAP + HOURS -->
+        <div class="side-panel">
+
+          <!-- EMBEDDED MAP PLACEHOLDER -->
+          <div class="map-card">
+            <div class="map-placeholder">
+              <i class="fa-solid fa-map-location-dot"></i>
+              <p>42 Commerce Street, New York, NY 10001</p>
+              <a href="https://maps.google.com" target="_blank" class="btn-map">
+                Open in Google Maps <i class="fa-solid fa-up-right-from-square"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- STORE HOURS -->
+          <div class="hours-card">
+            <h3><i class="fa-solid fa-clock"></i> Store Hours</h3>
+            <ul class="hours-list">
+              <li>
+                <span class="day">Monday – Friday</span>
+                <span class="time open">9:00 am – 8:00 pm</span>
+              </li>
+              <li>
+                <span class="day">Saturday</span>
+                <span class="time open">10:00 am – 6:00 pm</span>
+              </li>
+              <li>
+                <span class="day">Sunday</span>
+                <span class="time closed">Closed</span>
+              </li>
+            </ul>
+            <p class="holiday-note">
+              <i class="fa-solid fa-circle-info"></i>
+              Hours may vary on public holidays.
+            </p>
+          </div>
+
+          <!-- SOCIAL LINKS -->
+          <div class="social-card">
+            <h3>Follow Us</h3>
+            <div class="social-links">
+              <a href="#" class="social-btn facebook" aria-label="Facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              <a href="#" class="social-btn instagram" aria-label="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a href="#" class="social-btn twitter" aria-label="Twitter / X">
+                <i class="fa-brands fa-x-twitter"></i>
+              </a>
+              <a href="#" class="social-btn youtube" aria-label="YouTube">
+                <i class="fa-brands fa-youtube"></i>
+              </a>
+              <a href="#" class="social-btn tiktok" aria-label="TikTok">
+                <i class="fa-brands fa-tiktok"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FAQ STRIP ── -->
+    <section class="faq-section">
+      <div class="container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-sub">Quick answers to common questions</p>
+        <div class="faq-list" id="faqList">
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              How can I track my order?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Once your order ships, you'll receive a confirmation email with a tracking number. Visit the carrier's website or use our <a href="#">Order Tracker</a> page to monitor your delivery.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              What is your return policy?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>We accept returns within 30 days of purchase. Items must be unused and in original packaging. Initiate a return from your account dashboard or contact our support team.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Do you offer international shipping?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Yes! We ship to over 50 countries worldwide. Shipping rates and estimated delivery times are calculated at checkout based on your location.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              How long does delivery take?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Standard domestic delivery takes 3–5 business days. Express shipping (1–2 days) is available at an extra cost. International orders typically arrive within 7–14 business days.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Can I change or cancel my order?
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Orders can be modified or cancelled within 2 hours of placement. After that, the order moves to fulfilment. Please contact us immediately if you need to make changes.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <i class="fa-solid fa-bag-shopping"></i> ShopNest
+          </a>
+          <p>Your one-stop destination for quality products and outstanding service.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">Shipping Info</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-newsletter">
+          <h4>Stay Updated</h4>
+          <p>Subscribe for deals and news.</p>
+          <form class="newsletter-form" id="newsletterForm">
+            <input type="email" id="newsletterEmail" placeholder="your@email.com" required />
+            <button type="submit"><i class="fa-solid fa-arrow-right"></i></button>
+          </form>
+          <span class="newsletter-msg" id="newsletterMsg"></span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 ShopNest. All rights reserved.</p>
+        <p>Made with <i class="fa-solid fa-heart"></i> for great shopping experiences.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
