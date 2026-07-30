@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu — Spicy Kitchen</title>
+    <meta
+      name="description"
+      content="Browse the Spicy Kitchen menu — starters, mains, desserts and drinks made fresh with bold flavours."
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header class="navbar">
+      <div class="container nav-inner">
+        <a href="index.html" class="logo">
+          <span class="brand">Spicy<span>Kitchen</span></span>
+          <span class="tagline">Love the Food</span>
+        </a>
+        <button class="hamburger" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html" class="active">Menu</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- Banner -->
+    <section class="page-banner">
+      <div class="container">
+        <h1>Our Menu</h1>
+        <p>Love the food — every single bite</p>
+      </div>
+    </section>
+
+    <!-- Menu -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Freshly Made For You</h2>
+        <p class="section-subtitle">Filter by category to find your favourite</p>
+
+        <div class="menu-filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="starters">Starters</button>
+          <button class="filter-btn" data-filter="mains">Mains</button>
+          <button class="filter-btn" data-filter="desserts">Desserts</button>
+          <button class="filter-btn" data-filter="drinks">Drinks</button>
+        </div>
+
+        <div class="menu-grid">
+          <!-- Starters -->
+          <article class="menu-item" data-category="starters">
+            <img src="https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&w=600&q=80" alt="Spicy chicken wings" />
+            <div class="menu-item-body">
+              <div class="menu-item-head">
+                <h3>Spicy Chicken Wings</h3>
+                <span class="price">$8.99</span>
+              </div>
+              <p>Crispy wings tossed in our signature hot sauce.</p>
+              <span class="tag">Popular</span>
+            </div>
+          </article>
+
+          <article class="menu-item" data-category="starters">
+            <img src="https://images.unsplash.com/photo-1626074353765-517a681e40be?auto=format&fit=crop&w=600&q=80" alt="Loaded nachos" />
+            <div class="menu-item-body">
+              <div class="menu-item-head">
+                <h3>Loaded Nachos</h3>
+                <span class="price">$7.50</span>
+              </div>
+              <p>Tortilla chips topped with cheese, salsa and jalapeños.</p>
+            </div>
+          </article>
+
+          <!-- Mains -->
+          <article class="menu-item" data-category="mains">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" alt="Gourmet burger" />
+            <div class="menu-item-body">
+              <div class="menu-item-head">
+                <h3>Spicy Kitchen Burger</h3>
+                <span class="price">$12.99</span>
+              </div>
+              <p>Juicy beef patty, melted cheese and spicy house sauce.</p>
+              <span class="tag">Chef's Pick</span>
+            </div>
+          </article>
+
+          <article class="menu-item" data-category="mains">
+            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=600&q=80" alt="Wood-fired pizza" />
+            <div class="menu-item-body">
+              <div class="menu-item-head">
+                <h3>Wood-Fired Pizza</h3>
+                <span class="price">$14.50</span>
+              </div>
+              <p>Stone-baked with fresh mozzarella and basil.</p>
+            </div>
+          </article>
+
+          <article class="menu-item" data-category="mains">
+            <img src="https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?auto=format&fit=crop&w=600&q=80" alt="Grilled steak" />
+            <div class="menu-item-body">
+              <div class="menu-item-head">
+                <h3>Grilled Ribeye Steak</h3>
+                <span class="price">$22.00</span>
+              </div>
+              <p>Tender ribeye grilled to perfection with herb butter.</p>
+            </div>
+          </article>
+
+          <article class="menu-item" data-category="mains">
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80" alt="Fresh garden salad" />
+            <div class="menu-item-body">
+              <div class="menu-item-head">
+                <h3>Garden Fresh Salad</h3>
+                <span class="price">$9.00</span>
+              </div>
+              <p>Crisp greens, cherry tomatoes and a zesty dressing.</p>
+              <span class="tag">Vegan</span>
+            </div>
+          </article>
+
+          <!-- Desserts -->
+          <article class="menu-item" data-category="desserts">
+            <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80" alt="Chocolate lava cake" />
+            <div class="menu-item-body">
+              <div class="menu-item-head">
+                <h3>Chocolate Lava Cake</h3>
+                <span class="price">$6.50</span>
+              </div>
+              <p>Warm chocolate cake with a molten gooey centre.</p>
+              <span class="tag">Sweet</span>
+            </div>
+          </article>
+
+          <article class="menu-item" data-category="desserts">
+            <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=600&q=80" alt="Ice cream sundae" />
+            <div class="menu-item-body">
+              <div class="menu-item-head">
+                <h3>Ice Cream Sundae</h3>
+                <span class="price">$5.00</span>
+              </div>
+              <p>Vanilla scoops with sauce, nuts and a cherry on top.</p>
+            </div>
+          </article>
+
+          <!-- Drinks -->
+          <article class="menu-item" data-category="drinks">
+            <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=600&q=80" alt="Fresh fruit smoothie" />
+            <div class="menu-item-body">
+              <div class="menu-item-head">
+                <h3>Berry Smoothie</h3>
+                <span class="price">$4.50</span>
+              </div>
+              <p>Blended fresh berries with yoghurt and honey.</p>
+            </div>
+          </article>
+
+          <article class="menu-item" data-category="drinks">
+            <img src="https://images.unsplash.com/photo-1497534547324-0ebb3f052e88?auto=format&fit=crop&w=600&q=80" alt="Iced coffee" />
+            <div class="menu-item-body">
+              <div class="menu-item-head">
+                <h3>Iced Caramel Coffee</h3>
+                <span class="price">$3.99</span>
+              </div>
+              <p>Chilled espresso with caramel and a splash of milk.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <p class="brand-foot">Spicy<span>Kitchen</span></p>
+            <p style="margin-top: 0.6rem">
+              Love the food. Made with passion, served with a smile.
+            </p>
+            <div class="social">
+              <a href="#" aria-label="Facebook">f</a>
+              <a href="#" aria-label="Instagram">ig</a>
+              <a href="#" aria-label="Twitter">x</a>
+            </div>
+          </div>
+          <div>
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="menu.html">Menu</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Opening Hours</h4>
+            <ul>
+              <li>Mon – Fri: 11am – 11pm</li>
+              <li>Sat – Sun: 10am – 12am</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Contact</h4>
+            <ul>
+              <li>123 Flavour Street, Food City</li>
+              <li>+1 (555) 123-4567</li>
+              <li>hello@spicykitchen.com</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          &copy; <span id="year"></span> Spicy Kitchen. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
