@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Management System</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <nav class="navbar">
+      <h1>🏨 Hotel Management System</h1>
+      <div class="nav-links">
+        <button onclick="showSection('dashboard')" class="nav-btn active">Dashboard</button>
+        <button onclick="showSection('rooms')" class="nav-btn">Rooms</button>
+        <button onclick="showSection('reservations')" class="nav-btn">Reservations</button>
+        <button onclick="showSection('guests')" class="nav-btn">Guests</button>
+        <button onclick="showSection('billing')" class="nav-btn">Billing</button>
+        <button onclick="showSection('staff')" class="nav-btn">Staff</button>
+      </div>
+      <div class="status-indicator">
+        <span id="wsStatus" class="ws-badge offline">● Offline</span>
+      </div>
+    </nav>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="section active">
+      <h2>Dashboard Overview</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h3 id="totalRooms">0</h3>
+          <p>Total Rooms</p>
+        </div>
+        <div class="stat-card occupied">
+          <h3 id="occupiedRooms">0</h3>
+          <p>Occupied Rooms</p>
+        </div>
+        <div class="stat-card available">
+          <h3 id="availableRooms">0</h3>
+          <p>Available Rooms</p>
+        </div>
+        <div class="stat-card">
+          <h3 id="totalGuests">0</h3>
+          <p>Total Guests</p>
+        </div>
+        <div class="stat-card">
+          <h3 id="activeReservations">0</h3>
+          <p>Active Reservations</p>
+        </div>
+        <div class="stat-card">
+          <h3 id="totalRevenue">$0.00</h3>
+          <p>Total Revenue</p>
+        </div>
+      </div>
+
+      <div class="dashboard-content">
+        <div class="dashboard-box">
+          <h3>Room Status Distribution</h3>
+          <canvas id="roomStatusChart" width="200" height="150"></canvas>
+        </div>
+        <div class="dashboard-box">
+          <h3>Recent Activity</h3>
+          <div id="activityLog" class="activity-log"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rooms Section -->
+    <section id="rooms" class="section">
+      <h2>Room Management</h2>
+      <div class="filter-section">
+        <input type="text" id="roomFilter" placeholder="Search room...">
+        <select id="roomStatusFilter">
+          <option value="">All Statuses</option>
+          <option value="available">Available</option>
+          <option value="occupied">Occupied</option>
+          <option value="reserved">Reserved</option>
+          <option value="cleaning">Cleaning</option>
+        </select>
+      </div>
+
+      <div class="table-section">
+        <h3>Room List</h3>
+        <table id="roomsTable" class="data-table">
+          <thead>
+            <tr>
+              <th>Room #</th>
+              <th>Type</th>
+              <th>Capacity</th>
+              <th>Price/Night</th>
+              <th>Status</th>
+              <th>Condition</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Reservations Section -->
+    <section id="reservations" class="section">
+      <h2>Reservation Management</h2>
+      <div class="form-section">
+        <h3>Create New Reservation</h3>
+        <form id="reservationForm">
+          <div class="form-row">
+            <select id="resGuestSelect" required>
+              <option value="">Select Guest or Register New</option>
+            </select>
+            <button type="button" id="registerGuestBtn" class="btn-secondary">+ Register Guest</button>
+          </div>
+          <div id="newGuestForm" style="display:none;">
+            <div class="form-row">
+              <input type="text" id="guestFirstName" placeholder="First Name">
+              <input type="text" id="guestLastName" placeholder="Last Name">
+              <input type="email" id="guestEmail" placeholder="Email">
+            </div>
+            <button type="button" id="createGuestBtn" class="btn-secondary">Create Guest</button>
+          </div>
+          <div class="form-row">
+            <select id="resRoomSelect" required>
+              <option value="">Select Room</option>
+            </select>
+            <input type="date" id="checkInDate" required>
+            <input type="date" id="checkOutDate" required>
+          </div>
+          <div class="form-row">
+            <input type="number" id="numberOfGuests" min="1" placeholder="Number of Guests" required>
+            <textarea id="resNotes" placeholder="Special Notes" rows="2"></textarea>
+          </div>
+          <button type="submit" class="btn-primary">Create Reservation</button>
+        </form>
+      </div>
+
+      <div class="table-section">
+        <h3>Reservations</h3>
+        <table id="reservationsTable" class="data-table">
+          <thead>
+            <tr>
+              <th>Guest</th>
+              <th>Room</th>
+              <th>Check-in</th>
+              <th>Check-out</th>
+              <th>Nights</th>
+              <th>Total</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Guests Section -->
+    <section id="guests" class="section">
+      <h2>Guest Management</h2>
+      <div class="form-section">
+        <h3>Register New Guest</h3>
+        <form id="guestForm">
+          <div class="form-row">
+            <input type="text" id="firstName" placeholder="First Name" required>
+            <input type="text" id="lastName" placeholder="Last Name" required>
+            <input type="email" id="email" placeholder="Email" required>
+          </div>
+          <div class="form-row">
+            <input type="tel" id="phone" placeholder="Phone">
+            <input type="text" id="idNumber" placeholder="ID Number">
+            <input type="text" id="nationality" placeholder="Nationality">
+          </div>
+          <button type="submit" class="btn-primary">Register Guest</button>
+        </form>
+      </div>
+
+      <div class="table-section">
+        <h3>Guest List</h3>
+        <table id="guestsTable" class="data-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Total Stays</th>
+              <th>Loyalty Points</th>
+              <th>Registration Date</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Billing Section -->
+    <section id="billing" class="section">
+      <h2>Billing & Payments</h2>
+      <div class="form-section">
+        <h3>Create Bill</h3>
+        <form id="billingForm">
+          <div class="form-row">
+            <select id="billingResSelect" required>
+              <option value="">Select Reservation</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <input type="number" id="roomCharges" placeholder="Room Charges" step="0.01" required>
+            <input type="number" id="foodCharges" placeholder="Food Charges" step="0.01">
+            <input type="number" id="serviceCharges" placeholder="Service Charges" step="0.01">
+          </div>
+          <div class="form-row">
+            <input type="number" id="otherCharges" placeholder="Other Charges" step="0.01">
+            <select id="paymentMethod">
+              <option value="">Pay Later</option>
+              <option value="credit_card">Credit Card</option>
+              <option value="debit_card">Debit Card</option>
+              <option value="cash">Cash</option>
+              <option value="bank_transfer">Bank Transfer</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-primary">Create Bill</button>
+        </form>
+      </div>
+
+      <div class="table-section">
+        <h3>Billings</h3>
+        <table id="billingsTable" class="data-table">
+          <thead>
+            <tr>
+              <th>Billing ID</th>
+              <th>Guest</th>
+              <th>Subtotal</th>
+              <th>Tax</th>
+              <th>Total</th>
+              <th>Status</th>
+              <th>Payment Method</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Staff Section -->
+    <section id="staff" class="section">
+      <h2>Staff & Task Management</h2>
+      <div class="table-section">
+        <h3>Staff Members & Tasks</h3>
+        <table id="staffTable" class="data-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Role</th>
+              <th>Status</th>
+              <th>Assigned Tasks</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="form-section" style="margin-top: 30px;">
+        <h3>Assign Task to Staff</h3>
+        <form id="taskForm">
+          <div class="form-row">
+            <select id="staffSelect" required>
+              <option value="">Select Staff Member</option>
+            </select>
+            <select id="taskRoomSelect" required>
+              <option value="">Select Room</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <select id="taskType" required>
+              <option value="">Select Task Type</option>
+              <option value="cleaning">Cleaning</option>
+              <option value="maintenance">Maintenance</option>
+              <option value="laundry">Laundry</option>
+              <option value="repair">Repair</option>
+            </select>
+            <select id="taskPriority">
+              <option value="normal">Normal Priority</option>
+              <option value="high">High Priority</option>
+              <option value="urgent">Urgent</option>
+            </select>
+          </div>
+          <div class="form-row full">
+            <textarea id="taskDescription" placeholder="Task Description" rows="2"></textarea>
+          </div>
+          <button type="submit" class="btn-primary">Assign Task</button>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <!-- Modals -->
+  <div id="roomModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('roomModal')">&times;</span>
+      <h2>Room Details</h2>
+      <div id="roomModalContent"></div>
+    </div>
+  </div>
+
+  <div id="taskModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('taskModal')">&times;</span>
+      <h2>Assigned Tasks</h2>
+      <div id="tasksContent"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
